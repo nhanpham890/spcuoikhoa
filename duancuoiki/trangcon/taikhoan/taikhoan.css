@@ -1,0 +1,30 @@
+.profile {
+  display: flex;
+  margin: auto;
+  margin-top: 100px;
+  height: 100px;
+  background-color: rgb(219, 179, 179);
+  width: 80%;
+}
+.profile img {
+  border-radius: 50%;
+  height: 130px;
+  width: 130px;
+  margin-left: 6%;
+  transform: translateY(-50%);
+}
+.profile h3 {
+  margin: auto;
+  margin-left: 40px;
+}
+.info-user {
+  width: 20%;
+  height: 400px;
+  background-color: aqua;
+  margin-top: 30px;
+  margin-left: 130.906px;
+}
+.info-user p {
+  font-size: larger;
+  margin: auto;
+}

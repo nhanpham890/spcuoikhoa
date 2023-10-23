@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spcuoihk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home.css">
+    <script src="index.js"></script>
+</head>
+
+<body onload="change()">
+    <div id="menu">
+        <div class="logo">
+            <a href="index.html"><img src="\img\logo.png" alt=""></a>
+        </div>
+        <div class="title-block">
+            <div class="title"><b><a href="index.html">TRANG CHỦ</a></b></div>
+            <div class="title"><b><a href="#">DỊCH VỤ</a></b></div>
+            <div class="title"><b><a href="#">GIỚI THIỆU</a></b></div>
+            <div class="title"><b><a href="#">LIÊN HỆ</a></b></div>
+        </div>
+        <div class="search-bar">
+            <form action="">
+                <input type="text" placeholder="Tìm kiếm..." class="input" onchange="">
+                <button class="icon-search-bar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div id="Login">
+            <button onclick="logout()" style="background-color: #f7384e; border: none;"><a href="../Login/Login.html"
+                    style="text-decoration: none; color: black;"><b id="name">ĐĂNG XUẤT</b></a></button>
+        </div>
+        <div id="notLogin">
+            <button style="background-color: #f7384e; border: none;"><a href="../Login/Login.html"
+                    style="text-decoration: none; color: black;"><b>ĐĂNG NHẬP</b></a></button>
+        </div>
+    </div>
+    <div id="head">
+        <div id="slide">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
+                <div class="carousel-inner">
+                    <div class="carousel-item active c-item">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=843&q=80"
+                            class="d-block w-100 c-img" alt="...">
+                    </div>
+                    <div class="carousel-item c-item">
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNhdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60"
+                            class="d-block w-100 c-img" alt="...">
+                    </div>
+                    <div class="carousel-item c-item">
+                        <img src="https://images.pexels.com/photos/1404824/pexels-photo-1404824.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            class="d-block w-100 c-img" alt="...">
+                    </div>
+                    <div class="carousel-item active c-item">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            class="d-block w-100 c-img" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div id="body">
+        <div class="products-title">
+            <h3>- GIỐNG MÈO CẢNH -</h3>
+        </div>
+        <div class="body_items_cat">
+            <div class="item">
+                <a href="../meo/meo.html"><img
+                        src="https://dogily.vn/wp-content/uploads/2022/06/meo-anh-long-ngan-xam-xanh-truong-thanh-scaled-400x400.jpg"
+                        alt="">
+                    <b>MÈO ANH LÔNG NGẮN</b></a>
+            </div>
+            <script>
+                async function fetchData() {
+                    try {
+                        const response = await fetch('http://localhost:8080/api/tutorials')
+                        const data = await response.json();
+                        const cardContainerCat = document.querySelector('.body_items_cat')
+                        const cardContainerDog = document.querySelector('.body_items_dog')
+                        const cardContainerPK = document.querySelector('.body_items_pk')
+                        cardContainerCat.innerHTML = ''
+                        cardContainerDog.innerHTML = ''
+                        cardContainerPK.innerHTML = ''
+                        data.forEach(item => {
+                            const card = document.createElement('div')
+                            card.classList.add('item')
+                            var check = `${item.description}`
+                            console.log(check)
+                            if (check === 'Cat') {
+                                card.innerHTML = `<a href="#"><img src="${item.imgURL}"><b>${item.title}</b></a>`;
+                                cardContainerCat.appendChild(card)
+                            } else if (check === 'Dog') {
+                                card.innerHTML = `<a href="#"><img src="${item.imgURL}"><b>${item.title}</b></a>`;
+                                cardContainerDog.appendChild(card)
+                            } else {
+                                card.innerHTML = `<a href="#"><img src="${item.imgURL}"><b>${item.title}</b></a>`;
+                                cardContainerPK.appendChild(card)
+                            }
+
+                        });
+                    } catch (error) {
+                        console.error('error fetching data', error)
+                    }
+                }
+                fetchData()
+            </script>
+            <div class="item">
+                <a href="meo.html"><img
+                        src="https://dogily.vn/wp-content/uploads/2021/09/meo-munchkin-bicolor-4-thang-10-1-400x400.jpg"
+                        alt="">
+                    <b>MÈO MUNCHKIN</b></a>
+            </div>
+            <div class="item">
+                <a href="meo.html"><img
+                        src="https://dogily.vn/wp-content/uploads/2020/03/meo-anh-long-dai-de-thuong-400x400.jpg"
+                        alt="">
+                    <b>MÈO ANH LÔNG DÀI</b></a>
+            </div>
+            <div class="item">
+                <a href="meo.html"><img
+                        src="https://dogily.vn/wp-content/uploads/2020/12/meo-maine-coon-mau-vang-trang-6-thang-tuoi-11-400x400.jpg"
+                        alt="">
+                    <b>MÈO MAINE COON</b></a>
+            </div>
+            <div class="item">
+                <a href="meo.html"></a><img
+                    src="https://dogily.vn/wp-content/uploads/2019/12/meo-ba-tu-duc-dogily-3-thang-3-400x400.jpg"
+                    alt="">
+                <b>MÈO BA TƯ</b></a>
+            </div>
+            <div class="item">
+                <a href="meo.html"><img
+                        src="https://dogily.vn/wp-content/uploads/2022/03/meo-chan-ngan-tai-cup-silver-2-2-400x400.jpg"
+                        alt="">
+                    <b>MÈO ANH CHÂN NGẮN TAI CỤT</b></a>
+            </div>
+            <div class="item">
+                <a href="meo.html"></a><img
+                    src="https://dogily.vn/wp-content/uploads/2021/09/Meo-Sphynx-dogily-petshop-2-400x400.jpg" alt="">
+                <b>MÈO KHÔNG LÔNG SPHYNX</b></a>
+            </div>
+            <div class="item">
+                <a href="meo.html"><img src="https://dogily.vn/wp-content/uploads/2021/09/meo-xiem-4-400x400.jpg"
+                        alt="">
+                    <b>MÈO XIÊM</b></a>
+            </div>
+        </div>
+        <div class="products-title">
+            <h3>- GỐNG CHÓ CẢNH -</h3>
+        </div>
+        <div class="body_items_dog">
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2021/12/husky-cai-3-thang-11-400x400.jpg" alt="">
+                <b><a href="cho.html">CHÓ HUSKY</a></b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2022/04/cho-alaska-400x400.jpg" alt="">
+                <b><a href="cho.html">CHÓ ALASKA</a></b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2022/07/cho-mong-coc-den-400x400.jpg" alt="">
+                <b><a href="cho.html">CHÓ H'MONG CỘC</a></b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2021/09/dan-cho-border-collie-thuan-chung-3-thang-tuoi-5-400x400.jpg"
+                    alt="">
+                <b><a href="cho.html">CHÓ BORDER COLLIE</a></b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2022/01/samoyed-trang-cai-12-400x400.jpg" alt="">
+                <b><a href="cho.html">CHÓ SAMOYED</a></b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2021/11/cho-chow-chow-con-2-thang-tuoi-23-400x400.jpg"
+                    alt="">
+                <b><a href="cho.html">CHÓ CHOW CHOW</a></b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2022/03/cho-bull-phap-duc-mau-den-3-400x400.png" alt="">
+                <b><a href="cho.html"></a>CHÓ BULL PHÁP</b>
+            </div>
+            <div class="item">
+                <img src="https://dogily.vn/wp-content/uploads/2021/02/cho-Bulldog-dogily-petshop-400x400.jpg" alt="">
+                <b><a href="cho.html">CHÓ BULLDOG ANH</a></b>
+            </div> -->
+        </div>
+        <div class="products-title">
+            <h3>- PHỤ KIỆN THÚ CƯNG -</h3>
+        </div>
+        <div class="body_items_pk">
+            <!-- <div class="item">
+                <img src="https://pethouse.com.vn/wp-content/uploads/2023/01/balo-vuong-nhua-deo.jpg" alt="">
+                <b>BALO VUÔNG NHỰA DẺO</b>
+                <b>
+                    <p>350.000đ</p>
+                </b>
+            </div>
+            <div class="item">
+                <img src="https://pethouse.com.vn/wp-content/uploads/2022/11/f2edc7a6966d4b01959a2400bf167ca1.jpg"
+                    alt="">
+                <div class="title-product">
+                    <b>SỬA TẮM CHÓ MÈO BIO</b>
+                    <b>
+                        <p>210.000đ</p>
+                    </b>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://pethouse.com.vn/wp-content/uploads/2022/11/60b794faa6051946688aa36af842ebdf.jpg"
+                    alt="">
+                <div class="title-product">
+                    <b>RỌ MÕ CHÓ BẰNG NHỰA</b>
+                    <b>
+                        <p>59.000đ</p>
+                    </b>
+                </div> -->
+            <!-- </div> -->
+            <!-- <div class="item">
+                <img src="https://pethouse.com.vn/wp-content/uploads/2022/12/tru-cao-meo-treo-con-chuot.jpg" alt="">
+                <div class="title_product">
+                    <b>TRỤ CÀO MÈO TREO CON CHUỘT</b>
+                    <b>
+                        <p>140.000đ</p>
+                    </b>
+                </div> -->
+            <!-- </div>
+        </div>
+        <div id="footer">
+            <div class="contact">
+                <a href="#"><i class="fa-brands fa-facebook" style="color: rgb(75, 75, 235);"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram" style="color: rgb(231, 74, 34);"></i></a>
+                <a href="#"><i class="fa-brands fa-discord" style="color: rgb(31, 25, 121);"></i></a>
+                <a href="#"><i class="fa-brands fa-github" style="color: purple;"></i></a>
+                <p>Thiết kế bởi <strong>Phạm Thành Nhân</strong></p>
+            </div>
+        </div>
+</body>
+<script src=""></script>
+
+</html>
